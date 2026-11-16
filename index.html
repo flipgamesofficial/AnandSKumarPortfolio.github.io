@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anand S Kumar — Game Developer, 3D Animation &amp; VFX Artist</title>
+  <meta name="description" content="Portfolio of Anand S Kumar: 22-year-old Game Developer, 3D Animator &amp; VFX Artist. Creator of Squishy &amp; Road Block on itch.io, 3D artist at @frameworkstudios.official. Proficient in Unity (C#), Unreal Engine, Blender, Maya, Marvelous Designer, Substance Painter, After Effects, Premiere Pro, and Photoshop.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Oxanium:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+  <!-- Subtle Audio State Indicator -->
+  <div id="audioStatus" class="sr-only" aria-live="polite">Audio disabled</div>
+
+  <!-- Background Golden Line Vectors & Interactive Canvas -->
+  <div class="bg-wrapper" aria-hidden="true">
+    <canvas id="goldenMeshCanvas" class="golden-mesh-canvas"></canvas>
+    <div class="bg-grid-lines"></div>
+    <div class="bg-gold-accents">
+      <div class="gold-beam gold-beam--1"></div>
+      <div class="gold-beam gold-beam--2"></div>
+      <div class="gold-beam gold-beam--3"></div>
+      <div class="gold-circuit-vector gold-circuit-vector--top"></div>
+      <div class="gold-circuit-vector gold-circuit-vector--bottom"></div>
+    </div>
+  </div>
+
+  <!-- Scanline & Viewport CAD Overlays -->
+  <div class="cad-overlay" aria-hidden="true">
+    <div class="cad-corner cad-corner--tl">⌜ <span>SYS_COORD: 022.04</span></div>
+    <div class="cad-corner cad-corner--tr"><span>FPS: 120.0</span> ⌝</div>
+    <div class="cad-corner cad-corner--bl">⌞ <span>PHYS_TICK: 8.33ms</span></div>
+    <div class="cad-corner cad-corner--br"><span>BUILD: 2026.10</span> ⌟</div>
+  </div>
+
+  <!-- Top Announcement / Status Bar -->
+  <aside class="status-bar" aria-label="Developer Availability">
+    <div class="container status-bar__inner">
+      <div class="status-bar__item">
+        <span class="status-beacon"></span>
+        <span class="status-bar__label">STATUS:</span>
+        <strong class="status-bar__value status-bar__value--red">AVAILABLE FOR CONTRACT &amp; FULL-TIME ROLES</strong>
+      </div>
+      <div class="status-bar__meta hide-mobile">
+        <span class="status-chip">UNITY (C#)</span>
+        <span class="status-chip">UNREAL ENGINE</span>
+        <span class="status-chip">BLENDER &amp; MAYA</span>
+        <span class="status-chip">AFTER EFFECTS &amp; PREMIERE</span>
+        <span class="status-chip">MARVELOUS &amp; SUBSTANCE</span>
+      </div>
+      <div class="status-bar__actions">
+        <button id="sfxToggleBtn" class="sfx-toggle" type="button" aria-pressed="false" title="Toggle UI Sound Effects">
+          <svg class="sfx-icon sfx-icon--off" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg class="sfx-icon sfx-icon--on" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <span class="sfx-text">SFX: OFF</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="logo" href="#hero">
+        <span class="logo__bracket">[</span>
+        <img src="assets/framework-studios-logo.png" alt="Framework Studio" class="logo__fw-img">
+        <span class="logo__bracket">]</span>
+        <div class="logo__titles">
+          <span class="logo__name">ANAND S KUMAR</span>
+          <span class="logo__tag">FRAMEWORK STUDIO • GAME DEV &amp; VFX</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a class="nav__link" href="#hero"><span>01</span> OVERVIEW</a>
+        <a class="nav__link" href="#games"><span>02</span> PROJECTS</a>
+        <a class="nav__link" href="#about"><span>03</span> ABOUT</a>
+        <a class="nav__link" href="#contact"><span>04</span> TRANSMISSION</a>
+      </nav>
+
+      <div class="header__cta">
+        <a class="btn btn--red btn--sm" href="#contact">
+          <span class="btn__icon-dot"></span>
+          <span>GET IN TOUCH</span>
+        </a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-pulse"></span>
+            <span class="hero__badge-text">GAME DEVELOPER • 3D ANIMATION &amp; VFX ARTIST • 22 YRS OLD</span>
+          </div>
+
+          <h1 class="hero__title">
+            Forging interactive worlds with <span class="highlight-gold">cinematic animation</span> and <span class="highlight-red">gameplay precision</span>.
+          </h1>
+
+          <p class="hero__lead">
+            I'm <strong>Anand S Kumar</strong>, a 22-year-old game developer, 3D animator, and VFX artist heading <strong>Framework Studio</strong>. Currently developing <strong>Kuvalamkaattu Ilam</strong> (Unreal Engine 5 first-person folklore horror) and creator of playable titles like <strong>Squishy</strong> and <strong>Road Block</strong> on itch.io. Experienced in <strong>Unity (C#)</strong>, <strong>Unreal Engine</strong>, <strong>Blender</strong>, <strong>Maya</strong>, <strong>Marvelous Designer</strong>, <strong>Substance Painter</strong>, <strong>After Effects</strong>, <strong>Premiere Pro</strong>, and <strong>Photoshop</strong>.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--red btn--lg" href="#games">
+              <span class="btn__glimmer"></span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>EXPLORE PROJECTS</span>
+            </a>
+            <a class="btn btn--gold-outline btn--lg" href="https://anandframeworks.itch.io" target="_blank" rel="noopener noreferrer">
+              <span class="btn__reticle">✛</span>
+              <span>ITCH.IO GAMES</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://www.instagram.com/frameworkstudios.official" target="_blank" rel="noopener noreferrer">
+              <span>INSTAGRAM ART</span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics Cards -->
+          <div class="hero__metrics">
+            <div class="metric-card">
+              <div class="metric-card__header">
+                <span class="metric-card__tag">GAMES &amp; ENGINES</span>
+                <span class="metric-card__dot metric-card__dot--red"></span>
+              </div>
+              <div class="metric-card__val">Unity • UE5</div>
+              <div class="metric-card__desc">Squishy &amp; Road Block on Itch.io</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card__header">
+                <span class="metric-card__tag">3D ANIMATION</span>
+                <span class="metric-card__dot metric-card__dot--gold"></span>
+              </div>
+              <div class="metric-card__val">Blender • Maya</div>
+              <div class="metric-card__desc">Rigs, Mocap &amp; Marvelous Cloth</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card__header">
+                <span class="metric-card__tag">VFX &amp; VIDEO</span>
+                <span class="metric-card__dot metric-card__dot--red"></span>
+              </div>
+              <div class="metric-card__val">AE • Premiere</div>
+              <div class="metric-card__desc">VFX Compositing, Motion &amp; Editing</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card__header">
+                <span class="metric-card__tag">CREATIVE AGE</span>
+                <span class="metric-card__dot metric-card__dot--gold"></span>
+              </div>
+              <div class="metric-card__val">22 YRS</div>
+              <div class="metric-card__desc">Game Dev &amp; 3D Visual Artist</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase (Featuring Squishy) -->
+        <div class="hero__visual">
+          <div class="hero-frame">
+            <div class="hero-frame__hud-header">
+              <span class="hud-item hud-item--red">FEATURED TITLE</span>
+              <span class="hud-item hud-item--gold">UNITY (C#)</span>
+              <span class="hud-item">PLAYABLE ON ITCH.IO</span>
+            </div>
+
+            <div class="hero-frame__viewport">
+              <img src="assets/squishy-cover.png" alt="Squishy by AnandFrameWorks - Precision Jumping Platformer" class="hero-frame__img project-card__img--squishy" id="heroFeaturedImg">
+              <div class="hero-frame__reticle"></div>
+              <div class="hero-frame__scanline"></div>
+              
+              <!-- Floating HUD Telemetry Overlay -->
+              <div class="hero-frame__floating-hud">
+                <div class="floating-hud__title">SQUISHY // PRECISION PLATFORMER</div>
+                <div class="floating-hud__stats">
+                  <span>DEV: ANANDFRAMEWORKS</span>
+                  <span>CHECKPOINTS: 0 (PURE SKILL)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-frame__hud-footer">
+              <div class="hud-footer__btn-group">
+                <a href="https://anandframeworks.itch.io/squishy" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--xs">
+                  PLAY SQUISHY ON ITCH.IO
+                </a>
+              </div>
+              <span class="hud-footer__gold-coords">ITCH.IO // BROWSER PLAYABLE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golden Section Divider -->
+      <div class="gold-divider">
+        <span class="gold-divider__line"></span>
+        <span class="gold-divider__diamond">◆</span>
+        <span class="gold-divider__line"></span>
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURED GAMES & PROJECTS -->
+    <section id="games" class="section section--grey">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">CREATED GAMES &amp; INTERACTIVE BUILDS</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">Created <span class="highlight-red">Games</span> &amp; Projects</h2>
+          <p class="section-subtitle">
+            Playable titles and projects built in Unreal Engine 5 and Unity (C#).
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-bar" role="tablist" aria-label="Game categories">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">
+            <span class="filter-btn__dot"></span>
+            <span>ALL GAMES (3)</span>
+          </button>
+          <button class="filter-btn" data-filter="unity" role="tab" aria-selected="false">
+            <span class="filter-btn__dot"></span>
+            <span>UNITY &amp; C# (2)</span>
+          </button>
+          <button class="filter-btn" data-filter="ue5" role="tab" aria-selected="false">
+            <span class="filter-btn__dot"></span>
+            <span>UNREAL ENGINE 5 (1)</span>
+          </button>
+        </div>
+
+        <!-- Games Grid (Only Anand's Created Games) -->
+        <div class="games-grid" id="gamesGrid">
+
+          <!-- Game 1: Kuvalamkaattu Ilam (Unreal Engine 5 - In Development) -->
+          <article class="project-card" data-category="ue5" data-id="kuvalamkaattu-ilam">
+            <div class="project-card__frame">
+              <div class="project-card__tag-bar">
+                <span class="badge badge--red">IN DEVELOPMENT</span>
+                <span class="badge badge--gold">UNREAL ENGINE 5</span>
+              </div>
+              <img src="assets/kuvalamkaattu-ilam-title.png" alt="Kuvalamkaattu Ilam (കുവളങ്കാട്ട് ഇല്ലം) - Unreal Engine 5 First-Person Horror Game" class="project-card__img" loading="lazy">
+              <div class="project-card__hover-overlay">
+                <a href="kuvalamkaattu-ilam.html" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--sm">
+                  EXPLORE GAME DETAILS ↗
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-card__content">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Kuvalamkaattu Ilam</h3>
+                <span class="project-card__year">IN DEV</span>
+              </div>
+              <p class="project-card__genre">First-Person Folklore &amp; Psychological Horror</p>
+              <p class="project-card__desc">
+                An atmospheric first-person horror title built in Unreal Engine 5 exploring Kerala ancestral folklore. Navigate the suffocating darkness of a cursed ancestral mansion (<em>Illam</em>) with a diegetic oil lantern, dynamic Lumen illumination, and MetaSounds spatial audio.
+              </p>
+              
+              <div class="project-card__specs">
+                <div class="spec-row">
+                  <span class="spec-label">TECH &amp; ENGINE:</span>
+                  <span class="spec-value">Unreal Engine 5, Lumen Dynamic GI, Nanite Virtualized Geometry</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">AUDIO &amp; FEEL:</span>
+                  <span class="spec-value">MetaSounds Spatial 3D Audio, Diegetic Lantern Scarcity &amp; Sanity Loop</span>
+                </div>
+              </div>
+
+              <div class="project-card__footer">
+                <a href="kuvalamkaattu-ilam.html" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--sm">
+                  <span>EXPLORE GAME DETAILS</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <span class="spec-badge spec-badge--red">UNREAL ENGINE 5</span>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Game 1: Squishy (Unity - Shipped on Itch.io) -->
+          <article class="project-card" data-category="unity" data-id="squishy">
+            <div class="project-card__frame">
+              <div class="project-card__tag-bar">
+                <span class="badge badge--red">PLAYABLE ON ITCH.IO</span>
+                <span class="badge badge--gold">UNITY • C#</span>
+              </div>
+              <img src="assets/squishy-cover.png" alt="Squishy by AnandFrameWorks - Precision Jumping Platformer" class="project-card__img project-card__img--squishy" loading="lazy">
+              <div class="project-card__hover-overlay">
+                <a href="https://anandframeworks.itch.io/squishy" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--sm">
+                  PLAY ON ITCH.IO
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-card__content">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Squishy</h3>
+                <span class="project-card__year">2024</span>
+              </div>
+              <p class="project-card__genre">Precision Vertical Jumping Platformer</p>
+              <p class="project-card__desc">
+                A cute yet maddeningly challenging precision vertical platformer built in Unity. Guide a squishy jelly character on a relentless vertical ascent through treetops with no checkpoints—where a single mistimed leap sends you tumbling all the way back down.
+              </p>
+              
+              <div class="project-card__specs">
+                <div class="spec-row">
+                  <span class="spec-label">TECH &amp; PLATFORM:</span>
+                  <span class="spec-value">Unity (C#), Physics2D Kinematics, WebGL (Itch.io Playable)</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">GAMEPLAY &amp; FEEL:</span>
+                  <span class="spec-value">Precision Jump Buffering, Dynamic Squash &amp; Stretch, Momentum Trajectory</span>
+                </div>
+              </div>
+
+              <div class="project-card__footer">
+                <a href="https://anandframeworks.itch.io/squishy" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--sm">
+                  <span>PLAY ON ITCH.IO</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <span class="spec-badge spec-badge--red">FEATURED TITLE</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Game 2: Road Block (Unity - AI NavMesh on Itch.io) -->
+          <article class="project-card" data-category="unity" data-id="road-block">
+            <div class="project-card__frame">
+              <div class="project-card__tag-bar">
+                <span class="badge badge--gold">AI AGENT TESTBED</span>
+                <span class="badge badge--red">UNITY • C#</span>
+              </div>
+              <img src="assets/cover-road-block.svg" alt="Road Block - Unity AI Agents and NavMesh Testbed" class="project-card__img" loading="lazy">
+              <div class="project-card__hover-overlay">
+                <a href="https://anandframeworks.itch.io/road-block" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--sm">
+                  PLAY ON ITCH.IO
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-card__content">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Road Block</h3>
+                <span class="project-card__year">2024</span>
+              </div>
+              <p class="project-card__genre">Unity AI Agents &amp; Dynamic NavMesh Simulation</p>
+              <p class="project-card__desc">
+                An interactive browser-based test project built to experiment with Unity AI agents navigating dynamic roadblocks. Features real-time NavMesh surface baking, autonomous obstacle avoidance, and dynamic path recalculation.
+              </p>
+              
+              <div class="project-card__specs">
+                <div class="spec-row">
+                  <span class="spec-label">TECH &amp; PLATFORM:</span>
+                  <span class="spec-value">Unity (C#), NavMesh Surface API, WebGL (Itch.io Playable)</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">AI &amp; SYSTEMS:</span>
+                  <span class="spec-value">Autonomous Agent Steering, Dynamic Road Obstacles, Vector Path Costing</span>
+                </div>
+              </div>
+
+              <div class="project-card__footer">
+                <a href="https://anandframeworks.itch.io/road-block" target="_blank" rel="noopener noreferrer" class="btn btn--red btn--sm">
+                  <span>PLAY ON ITCH.IO</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <span class="spec-badge spec-badge--gold">ITCH.IO EXPERIMENT</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Golden Section Divider -->
+      <div class="gold-divider">
+        <span class="gold-divider__line"></span>
+        <span class="gold-divider__diamond">◆</span>
+        <span class="gold-divider__line"></span>
+      </div>
+    </section>
+
+    <!-- SECTION: ABOUT & CAREER TIMELINE -->
+    <section id="about" class="section section--white">
+      <div class="container">
+        <div class="about-grid">
+          
+          <div class="about-grid__text">
+            <div class="section-heading" style="text-align: left; margin-bottom: 24px;">
+              <div class="section-heading__eyebrow" style="justify-content: flex-start;">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">DEVELOPER &amp; ARTIST DOSSIER</span>
+              </div>
+              <h2 class="section-title">Where Code Meets <br><span class="highlight-red">3D Animation &amp; VFX</span></h2>
+            </div>
+
+            <p class="about-lead">
+              I'm <strong>Anand S Kumar</strong>, a 22-year-old game developer, 3D animator, and VFX artist pursuing M.Sc. Game Technology at Backstage Pass.
+            </p>
+            <p>
+              With a <strong>B.Sc. in Animation &amp; VFX from Westford Institute of Film Technology (WIFT)</strong>, I worked full-time as a <strong>3D Generalist at Flyfish Studio</strong> during my 6th semester, contributing to two feature films: <em>Rekhachithram</em> and <em>Emerald</em> (2025).
+            </p>
+            <p>
+              I build interactive games and experiences in <strong>Unity (C#)</strong>, having created and published titles like <strong>Squishy</strong> and <strong>Road Block</strong> on itch.io. My creative toolchain spans <strong>Blender</strong>, <strong>Autodesk Maya</strong>, <strong>Marvelous Designer</strong>, <strong>Substance Painter</strong>, <strong>Adobe After Effects</strong>, and <strong>Premiere Pro</strong>.
+            </p>
+
+            <div class="about-badges">
+              <div class="about-badge">
+                <span class="about-badge__icon">🎮</span>
+                <div>
+                  <strong>Unity &amp; Unreal Game Dev</strong>
+                  <p>Shipped precision platformer <em>Squishy</em> and AI testbed <em>Road Block</em> on Itch.io with responsive C# mechanics.</p>
+                </div>
+              </div>
+              <div class="about-badge">
+                <span class="about-badge__icon">🎨</span>
+                <div>
+                  <strong>3D Animation &amp; Rigs (@frameworkstudios.official)</strong>
+                  <p>Maya/Blender skeleton rigging, character keyframing, and Marvelous Designer cloth simulations.</p>
+                </div>
+              </div>
+              <div class="about-badge">
+                <span class="about-badge__icon">🎬</span>
+                <div>
+                  <strong>VFX &amp; Post-Production</strong>
+                  <p>Adobe After Effects, Premiere Pro, motion graphics, compositing, and Photoshop concepting.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Developer Telemetry Panel (Right) -->
+          <div class="about-grid__panel">
+            <div class="telemetry-box">
+              <div class="telemetry-box__header">
+                <span class="telemetry-box__title">ARTIST_DEV_TELEMETRY.SYS</span>
+                <span class="telemetry-box__led"></span>
+              </div>
+
+              <div class="telemetry-box__body">
+                <div class="telemetry-row">
+                  <span class="telemetry-label">DEVELOPER:</span>
+                  <span class="telemetry-value telemetry-value--gold">Anand S Kumar</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">AGE:</span>
+                  <span class="telemetry-value telemetry-value--red">22 Years Old</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">GAME ENGINES:</span>
+                  <span class="telemetry-value">Unity (C#), Unreal Engine</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">3D &amp; ANIMATION:</span>
+                  <span class="telemetry-value">Blender, Autodesk Maya, Marvelous Designer</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">VFX &amp; VIDEO:</span>
+                  <span class="telemetry-value">Adobe After Effects, Premiere Pro</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">TEXTURES &amp; 2D:</span>
+                  <span class="telemetry-value">Substance Painter, Photoshop</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">PORTFOLIOS:</span>
+                  <span class="telemetry-value telemetry-value--gold">anandframeworks.itch.io • @frameworkstudios.official</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">EMAIL:</span>
+                  <span class="telemetry-value telemetry-value--red">anandskumarndd@gmail.com</span>
+                </div>
+              </div>
+
+              <!-- Career Timeline Mini-Flow -->
+              <div class="career-flow">
+                <div class="flow-step">
+                  <span class="flow-step__dot"></span>
+                  <div class="flow-step__content">
+                    <span class="flow-step__year">PRESENT</span>
+                    <strong>M.Sc. Game Technology — Backstage Pass</strong>
+                    <p>Pursuing M.Sc. in Game Technology, focusing on game engine systems, Unity C# gameplay mechanics, and interactive design.</p>
+                  </div>
+                </div>
+
+                <div class="flow-step">
+                  <span class="flow-step__dot flow-step__dot--gold"></span>
+                  <div class="flow-step__content">
+                    <span class="flow-step__year">2025</span>
+                    <strong>3D Generalist — Flyfish Studio</strong>
+                    <p>During the 6th sem did a full time job in Flyfish studio as 3D generalist and worked on 2 movies: <em>Rekhachithram</em> and <em>Emerald</em> in 2025.</p>
+                  </div>
+                </div>
+
+                <div class="flow-step">
+                  <span class="flow-step__dot"></span>
+                  <div class="flow-step__content">
+                    <span class="flow-step__year">GRADUATION</span>
+                    <strong>B.Sc. Animation &amp; VFX — Westford Institute of Film Technology (WIFT)</strong>
+                    <p>Graduated with strong foundations in 3D modeling, character animation, skeleton rigging, cloth dynamics, and VFX compositing.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Golden Section Divider -->
+      <div class="gold-divider">
+        <span class="gold-divider__line"></span>
+        <span class="gold-divider__diamond">◆</span>
+        <span class="gold-divider__line"></span>
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT & TRANSMISSION CONSOLE -->
+    <section id="contact" class="section section--grey">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">SECURE TRANSMISSION CHANNEL</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">Initiate <span class="highlight-red">Contact</span></h2>
+          <p class="section-subtitle">
+            Open for studio roles, contract 3D animation, realtime VFX simulation, or Unity / Unreal game development projects. Send a transmission below.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Direct Links & Form (Left) -->
+          <div class="contact-grid__form-col">
+            
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="userName" class="form-label">CALLSIGN / NAME <span class="required-star">*</span></label>
+                  <input type="text" id="userName" name="name" required placeholder="e.g. Lead Producer / Studio Director" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label for="userEmail" class="form-label">EMAIL ADDRESS <span class="required-star">*</span></label>
+                  <input type="email" id="userEmail" name="email" required placeholder="recruiter@studio.com" class="form-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="projectType" class="form-label">INQUIRY TYPE</label>
+                <select id="projectType" name="type" class="form-input form-select">
+                  <option value="full-time">Full-Time Game Dev / 3D &amp; VFX Artist Role</option>
+                  <option value="contract-vfx">Contract Realtime VFX (EmberGen / Shaders)</option>
+                  <option value="contract-3d">Contract 3D Animation &amp; Rigging (Maya / Blender)</option>
+                  <option value="contract-gameplay">Contract Gameplay Dev (Unity C# / Unreal Engine)</option>
+                  <option value="general">General Collaboration / Portfolio Chat</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="userMessage" class="form-label">TRANSMISSION BRIEF <span class="required-star">*</span></label>
+                <textarea id="userMessage" name="message" rows="5" required placeholder="Detail your project timeline, engine, 3D asset needs, or role requirements..." class="form-input"></textarea>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn btn--red btn--block btn--lg">
+                <span class="btn__glimmer"></span>
+                <span id="btnText">TRANSMIT MESSAGE</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+
+              <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+            </form>
+
+            <!-- Direct Contact Links -->
+            <div class="contact-cards">
+              <a href="mailto:anandskumarndd@gmail.com" class="contact-pill-card">
+                <span class="contact-pill-card__icon">✉️</span>
+                <div>
+                  <span class="contact-pill-card__label">DIRECT EMAIL</span>
+                  <span class="contact-pill-card__value">anandskumarndd@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://anandframeworks.itch.io" target="_blank" rel="noopener noreferrer" class="contact-pill-card">
+                <span class="contact-pill-card__icon">🎮</span>
+                <div>
+                  <span class="contact-pill-card__label">ITCH.IO GAMES (SQUISHY &amp; ROAD BLOCK)</span>
+                  <span class="contact-pill-card__value">anandframeworks.itch.io</span>
+                </div>
+              </a>
+
+              <a href="https://www.instagram.com/frameworkstudios.official" target="_blank" rel="noopener noreferrer" class="contact-pill-card">
+                <span class="contact-pill-card__icon">📸</span>
+                <div>
+                  <span class="contact-pill-card__label">INSTAGRAM 3D ART ACCOUNT</span>
+                  <span class="contact-pill-card__value">@frameworkstudios.official</span>
+                </div>
+              </a>
+
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-pill-card">
+                <span class="contact-pill-card__icon">🐙</span>
+                <div>
+                  <span class="contact-pill-card__label">GITHUB / DEV REPOS</span>
+                  <span class="contact-pill-card__value">github.com/anand-skumar</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Interactive Sci-Fi Dev Console (Right) -->
+          <div class="contact-grid__terminal-col">
+            <div class="terminal-card">
+              <div class="terminal-card__top">
+                <div class="terminal-dots">
+                  <span class="dot dot--red"></span>
+                  <span class="dot dot--gold"></span>
+                  <span class="dot dot--grey"></span>
+                </div>
+                <span class="terminal-card__title">bash // anand-creative-dev-v2.2</span>
+                <span class="terminal-badge">LIVE_TERMINAL</span>
+              </div>
+
+              <div class="terminal-card__screen" id="terminalOutput">
+                <div class="term-line term-line--dim">Initializing developer console handshake [TLS 1.3]...</div>
+                <div class="term-line term-line--gold">Loaded Anand S Kumar Dev &amp; VFX Suite (Unity C# / AE / Premiere / Blender / Maya)</div>
+                <div class="term-line">Type <span class="term-highlight">help</span> or click quick commands below:</div>
+                <div class="term-line term-line--accent">guest@anand-dev:~$ whoami</div>
+                <div class="term-line term-line--out">Anand S Kumar (22) — Game Developer, 3D Animator &amp; VFX Artist. M.Sc. Game Technology (Backstage Pass) • 3D Generalist @ Flyfish Studio ('Rekhachithram' &amp; 'Emerald', 2025) • B.Sc. Animation &amp; VFX (WIFT). Creator of Squishy &amp; Road Block on Itch.io.</div>
+              </div>
+
+              <!-- Quick Command Pills -->
+              <div class="terminal-chips">
+                <button type="button" class="term-chip" data-cmd="help">help</button>
+                <button type="button" class="term-chip" data-cmd="projects">projects</button>
+                <button type="button" class="term-chip" data-cmd="skills">skills</button>
+                <button type="button" class="term-chip" data-cmd="stats">stats</button>
+                <button type="button" class="term-chip" data-cmd="hire">hire</button>
+                <button type="button" class="term-chip" data-cmd="clear">clear</button>
+              </div>
+
+              <!-- Interactive Terminal Input -->
+              <form id="terminalForm" class="terminal-form">
+                <span class="terminal-prompt">guest@anand-dev:~$</span>
+                <input type="text" id="terminalInput" class="terminal-input" placeholder="type command (e.g. 'help')..." autocomplete="off" spellcheck="false">
+                <button type="submit" class="terminal-submit-btn" aria-label="Execute command">↵</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/framework-studios-logo.png" alt="Framework Studio" class="footer__fw-logo">
+        <div class="footer__text">
+          <strong class="footer__name">ANAND S KUMAR // FRAMEWORK STUDIO</strong>
+          <span class="footer__desc">GAME DEVELOPER • 3D ANIMATION &amp; VFX ARTIST</span>
+        </div>
+      </div>
+
+      <div class="footer__nav">
+        <a href="#hero">Overview</a>
+        <a href="#games">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer__copy">
+        <p>© 2026 Anand S Kumar. Built with Unity (C#), Unreal Engine, Blender, Maya, Marvelous Designer, Substance Painter, After Effects &amp; Premiere Pro.</p>
+        <a href="#hero" class="footer__top-btn" title="Back to top">
+          <span>TOP</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TECHNICAL BREAKDOWN MODAL DIALOG -->
+  <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__container">
+      <div class="modal__frame">
+        <div class="modal__header">
+          <div class="modal__title-group">
+            <span class="badge badge--red" id="modalBadge">UE5 • C++</span>
+            <h3 class="modal__title" id="modalTitle">Project Architecture &amp; Art Breakdown</h3>
+          </div>
+          <button class="modal__close" id="modalCloseBtn" aria-label="Close dialog">✕</button>
+        </div>
+
+        <div class="modal__body" id="modalBody">
+          <!-- Dynamic Content injected via JS -->
+        </div>
+
+        <div class="modal__footer">
+          <button class="btn btn--ghost btn--sm" id="modalDismissBtn">CLOSE INSPECTOR</button>
+          <a href="#contact" class="btn btn--red btn--sm" id="modalCtaBtn">DISCUSS PROJECT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>

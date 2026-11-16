@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuvalamkaattu Ilam (കുവളങ്കാട്ട് ഇല്ലം) — UE5 First-Person Horror Game | Framework Studio</title>
+  <meta name="description" content="Kuvalamkaattu Ilam is an Unreal Engine 5 first-person psychological and Kerala folklore horror game in development by Framework Studio (Anand S Kumar).">
+  
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Oxanium:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/framework-studios-logo.png">
+</head>
+<body class="theme-light">
+
+  <!-- Interactive Golden Mesh Background Canvas -->
+  <canvas id="goldenMeshCanvas" class="canvas-mesh" aria-hidden="true"></canvas>
+
+  <!-- Status Bar (Top Accent) -->
+  <aside class="status-bar" aria-label="System status">
+    <div class="container status-bar__inner">
+      <div class="status-bar__item">
+        <span class="status-beacon"></span>
+        <span class="status-bar__label">PROJECT TELEMETRY:</span>
+        <span class="status-bar__value status-bar__value--red">ACTIVE DEVELOPMENT // UNREAL ENGINE 5</span>
+      </div>
+      <div class="status-bar__meta hide-mobile">
+        <span class="status-chip">DEV: FRAMEWORK STUDIO</span>
+        <span class="status-chip">LEAD: ANAND S KUMAR</span>
+        <button class="sfx-toggle" id="sfxToggleBtn" aria-label="Toggle procedural sound effects" aria-pressed="false">
+          <svg class="sfx-icon sfx-icon--off" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg class="sfx-icon sfx-icon--on" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <span class="sfx-text">SFX: OFF</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="header detail-page-header" id="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__bracket">[</span>
+        <img src="assets/framework-studios-logo.png" alt="Framework Studio Logo" class="logo__fw-img">
+        <span class="logo__bracket">]</span>
+        <div class="logo__titles">
+          <span class="logo__name">FRAMEWORK STUDIO</span>
+          <span class="logo__tag">ANAND S KUMAR • GAME DEV &amp; VFX</span>
+        </div>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="index.html#games" class="detail-nav-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>RETURN TO PORTFOLIO</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SHOWCASE SECTION -->
+    <section class="game-hero">
+      <div class="container">
+        <div class="game-hero__card">
+          <div class="game-hero__media-container">
+            <img src="assets/kuvalamkaattu-ilam-title.png" alt="Kuvalamkaattu Ilam Title - Malayalam Typography കുവളങ്കാട്ട് ഇല്ലം" class="game-hero__banner-img">
+            <div class="game-hero__media-overlay">
+              <div class="game-hero__tag-cluster">
+                <span class="badge badge--red">CURRENTLY IN ACTIVE DEVELOPMENT</span>
+                <span class="badge badge--gold">UNREAL ENGINE 5</span>
+                <span class="badge badge--gold">FIRST-PERSON FOLKLORE HORROR</span>
+                <span class="badge badge--red">FRAMEWORK STUDIO</span>
+              </div>
+              <h1 class="game-hero__title-main">Kuvalamkaattu Ilam</h1>
+              <span class="game-hero__title-malayalam">കുവളങ്കാട്ട് ഇല്ലം</span>
+              <p class="game-hero__subtitle">
+                A FIRST-PERSON PSYCHOLOGICAL FOLKLORE HORROR ODYSSEY SET WITHIN THE SHADOWS OF AN ANCIENT KERALA ANCESTRAL MANOR.
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Telemetry Dashboard -->
+          <div class="game-hero__telemetry-bar">
+            <div class="game-telemetry-item">
+              <span class="game-telemetry-item__label">GAME ENGINE</span>
+              <span class="game-telemetry-item__value">Unreal Engine 5 (UE5)</span>
+            </div>
+            <div class="game-telemetry-item">
+              <span class="game-telemetry-item__label">PERSPECTIVE / GENRE</span>
+              <span class="game-telemetry-item__value">First-Person Horror</span>
+            </div>
+            <div class="game-telemetry-item">
+              <span class="game-telemetry-item__label">STUDIO / DEVELOPER</span>
+              <span class="game-telemetry-item__value">Framework Studio // Anand S Kumar</span>
+            </div>
+            <div class="game-telemetry-item">
+              <span class="game-telemetry-item__label">TARGET PLATFORM</span>
+              <span class="game-telemetry-item__value">PC (Steam) • Standalone</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: NARRATIVE & FOLKLORE SETTING -->
+    <section class="detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">NARRATIVE SYNOPSIS &amp; REGIONAL LORE</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">Kuvalamkaattu Ilam</h2>
+          <p class="section-subtitle">
+            Rooted in Kerala's rural folklore, ancestral family curses, and forgotten occult traditions.
+          </p>
+        </div>
+
+        <div class="lore-card">
+          <p class="lore-card__quote">
+            "Behind weathered rosewood doorways and iron-nailed padlocks, generations of forbidden rituals remain unfinished. In Kuvalamkaattu, silence is merely the entity catching its breath."
+          </p>
+          <p class="lore-card__p">
+            The story revolves around the protagonist Ajayan who comes back to his hometown to find the documents about his ancestral home <strong>Illam (ഇല്ലം)</strong>  after running away from the place at the age of 5 with his father and mother. but ended up caught in a web of lies and mysteries that left behind by his grandfather and his father before him. the story focuses on thedark ritual practiced and the consequences that follows it and the ones that watches us from the dark 
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CORE GAMEPLAY MECHANICS -->
+    <section class="detail-section detail-section--grey">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">INTERACTIVE DESIGN PILLARS</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">Core <span class="highlight-red">Gameplay</span> Systems</h2>
+          <p class="section-subtitle">
+            Diegetic mechanics, resource scarcity, and sensory tension engineered for maximum immersion.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-card__icon">01</div>
+            <h3 class="pillar-card__title">Diegetic First-Person Immersion</h3>
+            <p class="pillar-card__desc">
+              Zero floating UI bars or crosshairs. The player's physical state is communicated entirely through character audio, shallow gasping breaths, visceral trembling of the hands when terror strikes, and blood pulsing against the auditory channels.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card__icon">02</div>
+            <h3 class="pillar-card__title">Brass Lantern &amp; Sacred Oil Scarcity</h3>
+            <p class="pillar-card__desc">
+              Your primary lifeline is a traditional Kerala hand lantern (<em>Kuthuvilakku / Cheena Chatti</em>). Oil is scarce and burns quickly. In absolute darkness, the supernatural forces close in rapidly—yet carrying an open flame exposes your exact position to patrolling entities.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card__icon">03</div>
+            <h3 class="pillar-card__title">3D Auditory Stealth &amp; Creaking Timber</h3>
+            <p class="pillar-card__desc">
+              Every step on century-old teak floorboards triggers dynamic acoustic propagation. Players must learn to crouch and step deliberately. Distant temple bells, whispers through wall cavities, and sudden footsteps above provide vital cues for survival.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card__icon">04</div>
+            <h3 class="pillar-card__title">Psychological Dread &amp; Spatial Distortion</h3>
+            <p class="pillar-card__desc">
+              Extended exposure to the dark triggers sanity loss. Hallucinations alter the mansion's geography: doors vanish, corridors stretch infinitely into the gloom, and whispers offer deceptive guidance designed to lead you straight into the entity's path.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: UNREAL ENGINE 5 TECHNICAL ARCHITECTURE -->
+    <section class="detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">NEXT-GEN RENDERING &amp; AUDIO SYSTEMS</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">Unreal Engine 5 <span class="highlight-red">Technical</span> Stack</h2>
+          <p class="section-subtitle">
+            Harnessing Lumen, Nanite, and MetaSounds to craft an authentic, photorealistic heritage environment.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <span class="tech-card__badge">DYNAMIC GLOBAL ILLUMINATION</span>
+            <h3 class="tech-card__title">Lumen Dynamic Lighting</h3>
+            <p class="tech-card__desc">
+              Real-time multi-bounce global illumination accurately renders the soft, warm glow of flickering oil flames bouncing off dark, polished timber, hand-plastered walls, and copper utensils. Complete absence of baked lighting allows dynamic shadows and pitch-black corners to evoke genuine terror.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <span class="tech-card__badge">VIRTUALIZED GEOMETRY PIPELINE</span>
+            <h3 class="tech-card__title">Nanite Heritage Assets</h3>
+            <p class="tech-card__desc">
+              Intricately detailed architectural elements—hand-carved teak pillars, brass door latches, ornate ceiling panels, and sacred serpent stone groves (<em>Sarpa Kaavu</em>)—are rendered with millions of micro-polygons directly with zero Level-of-Detail (LOD) pop-in.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <span class="tech-card__badge">PROCEDURAL BINAURAL AUDIO</span>
+            <h3 class="tech-card__title">MetaSounds Audio Pipeline</h3>
+            <p class="tech-card__desc">
+              A fully procedural sound design framework built in Unreal's MetaSounds. Generates real-time ambient rain drumming on terracotta tiles, dynamic room acoustic reverberations, and spatialized supernatural whispering that adapts directly to player sanity levels.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <span class="tech-card__badge">PHYSICS &amp; ATMOSPHERICS</span>
+            <h3 class="tech-card__title">Chaos Physics &amp; Volumetric Fog</h3>
+            <p class="tech-card__desc">
+              Volumetric mist filters through the central courtyard skylight, illuminated by lightning flashes. Dynamic cloth simulation handles torn vintage window drapes and shrine curtains reacting to door breaches and supernatural gusts of wind.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: DEVELOPMENT ROADMAP -->
+    <section class="detail-section detail-section--grey">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">DEVELOPMENT MILESTONES &amp; STATUS</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">Production <span class="highlight-red">Roadmap</span></h2>
+          <p class="section-subtitle">
+            Current development progress at Framework Studio.
+          </p>
+        </div>
+
+        <div class="roadmap-list">
+          <div class="roadmap-card">
+            <div class="roadmap-card__phase">MILESTONE 01</div>
+            <h3 class="roadmap-card__title">Core Mechanics &amp; Locomotion</h3>
+            <span class="roadmap-card__status roadmap-card__status--done">✓ COMPLETED</span>
+            <p class="roadmap-card__desc">
+              First-person camera rig, lantern holding physics, oil consumption loops, and diegetic breath simulation verified.
+            </p>
+          </div>
+
+          <div class="roadmap-card is-active">
+            <div class="roadmap-card__phase">MILESTONE 02</div>
+            <h3 class="roadmap-card__title">Illam Manor Level Design</h3>
+            <span class="roadmap-card__status roadmap-card__status--current">● IN PROGRESS</span>
+            <p class="roadmap-card__desc">
+              Nanite architectural modular kit creation, courtyard illumination, realistic Kerala wood/clay PBR textures.
+            </p>
+          </div>
+
+          <div class="roadmap-card">
+            <div class="roadmap-card__phase">MILESTONE 03</div>
+            <h3 class="roadmap-card__title">Entity AI &amp; Sanity Loop</h3>
+            <span class="roadmap-card__status roadmap-card__status--upcoming">⏳ SCHEDULED</span>
+            <p class="roadmap-card__desc">
+              Behavior tree entity pathfinding, hearing perception AI, dynamic hallucinations and geometry-shifting events.
+            </p>
+          </div>
+
+          <div class="roadmap-card">
+            <div class="roadmap-card__phase">MILESTONE 04</div>
+            <h3 class="roadmap-card__title">Playable Teaser / Demo</h3>
+            <span class="roadmap-card__status roadmap-card__status--upcoming">⏳ UPCOMING</span>
+            <p class="roadmap-card__desc">
+              Vertical slice demo release for PC players featuring the mansion ground floor and prologue puzzle sequence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION & STUDIO TRANSMISSION -->
+    <section class="detail-section">
+      <div class="container">
+        <div class="lore-card" style="text-align: center; padding: 48px 32px; max-width: 800px; margin: 0 auto;">
+          <img src="assets/framework-studios-logo.png" alt="Framework Studio" style="width: 64px; height: 64px; object-fit: contain; margin: 0 auto 16px; display: block; filter: drop-shadow(0 0 10px rgba(200, 16, 46, 0.4));">
+          <span class="badge badge--gold" style="margin-bottom: 12px; display: inline-block;">FRAMEWORK STUDIO ORIGINAL</span>
+          <h2 style="font-family: 'Oxanium', sans-serif; font-size: 26px; font-weight: 800; color: var(--text-title); margin-bottom: 12px;">
+            Follow the Development of <span class="highlight-red">Kuvalamkaattu Ilam</span>
+          </h2>
+          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 600px; margin: 0 auto 28px;">
+            Developed by <strong>Anand S Kumar</strong> (22-year-old Game Developer, 3D Animator &amp; VFX Artist). For publishing inquiries, playtesting access, or collaboration opportunities, feel free to reach out directly.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+            <a href="mailto:anandskumarndd@gmail.com?subject=Kuvalamkaattu%20Ilam%20Inquiry" class="btn btn--red btn--lg">
+              <span class="btn__glimmer"></span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>CONTACT DEVELOPER</span>
+            </a>
+            <a href="https://www.instagram.com/frameworkstudios.official" target="_blank" rel="noopener noreferrer" class="btn btn--gold-outline btn--lg">
+              <span>INSTAGRAM @FRAMEWORKSTUDIOS.OFFICIAL</span>
+            </a>
+            <a href="index.html#games" class="btn btn--ghost btn--lg">
+              <span>← BACK TO PORTFOLIO</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/framework-studios-logo.png" alt="Framework Studio" class="footer__fw-logo">
+        <div class="footer__text">
+          <strong class="footer__name">ANAND S KUMAR // FRAMEWORK STUDIO</strong>
+          <span class="footer__desc">GAME DEVELOPER • 3D ANIMATION &amp; VFX ARTIST</span>
+        </div>
+      </div>
+
+      <div class="footer__nav">
+        <a href="index.html#hero">Overview</a>
+        <a href="index.html#games">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="footer__copy">
+        <p>© 2026 Anand S Kumar • Framework Studio. Kuvalamkaattu Ilam (കുവളങ്കാട്ട് ഇല്ലം) built with Unreal Engine 5.</p>
+        <a href="#" class="footer__top-btn" title="Back to top">
+          <span>TOP</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
