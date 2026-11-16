@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="fs-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2EFE9"/>
+      <stop offset=".5" stop-color="#E2DDD2"/>
+      <stop offset="1" stop-color="#CAC3B5"/>
+    </linearGradient>
+    <linearGradient id="fs-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C9A34E"/>
+      <stop offset="1" stop-color="#E2B755"/>
+    </linearGradient>
+    <pattern id="fs-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="#242427" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#fs-bg)"/>
+  <rect width="1200" height="800" fill="url(#fs-dots)"/>
+
+  <!-- Watermark text -->
+  <text x="60" y="520" font-family="'Oxanium', sans-serif" font-weight="800" font-size="220" fill="#242427" opacity="0.04">FRAMEWORK</text>
+
+  <!-- 3D Viewport Rigging Wireframe & Skeletal Hierarchy -->
+  <g transform="translate(600, 400)">
+    <!-- 3D Coordinate Grid Circle -->
+    <ellipse cx="0" cy="180" rx="340" ry="110" fill="none" stroke="#C9A34E" stroke-width="1.8" stroke-dasharray="8 6"/>
+    <ellipse cx="0" cy="180" rx="220" ry="70" fill="none" stroke="#242427" stroke-width="1" stroke-opacity="0.25"/>
+
+    <!-- Keyframe Animation Spine & Joints -->
+    <!-- Pelvis -->
+    <circle cx="0" cy="70" r="14" fill="#C8102E"/>
+    <!-- Spine Line -->
+    <line x1="0" y1="70" x2="0" y2="-40" stroke="#242427" stroke-width="4"/>
+    <!-- Chest -->
+    <circle cx="0" cy="-40" r="16" fill="#C9A34E"/>
+    <!-- Head / Cranium -->
+    <line x1="0" y1="-40" x2="0" y2="-120" stroke="#242427" stroke-width="3"/>
+    <circle cx="0" cy="-140" r="32" fill="#242427" fill-opacity="0.9"/>
+    <circle cx="0" cy="-140" r="28" stroke="#C9A34E" stroke-width="2" fill="none"/>
+
+    <!-- Shoulders & Arms -->
+    <line x1="0" y1="-40" x2="-110" y2="-10" stroke="#242427" stroke-width="3.5"/>
+    <circle cx="-110" cy="-10" r="11" fill="#C8102E"/>
+    <line x1="-110" y1="-10" x2="-160" y2="70" stroke="#242427" stroke-width="3"/>
+    <circle cx="-160" cy="70" r="8" fill="#C9A34E"/>
+
+    <line x1="0" y1="-40" x2="110" y2="-10" stroke="#242427" stroke-width="3.5"/>
+    <circle cx="110" cy="-10" r="11" fill="#C8102E"/>
+    <line x1="110" y1="-10" x2="170" y2="-80" stroke="#242427" stroke-width="3"/>
+    <circle cx="170" cy="-80" r="8" fill="#C9A34E"/>
+
+    <!-- Legs & IK Foot Targets -->
+    <line x1="0" y1="70" x2="-90" y2="160" stroke="#242427" stroke-width="3.5"/>
+    <circle cx="-90" cy="160" r="10" fill="#C8102E"/>
+    <line x1="-90" y1="160" x2="-120" y2="240" stroke="#242427" stroke-width="3"/>
+    <!-- Left IK Target Box -->
+    <rect x="-135" y="235" width="30" height="15" fill="none" stroke="#C8102E" stroke-width="2"/>
+
+    <line x1="0" y1="70" x2="100" y2="150" stroke="#242427" stroke-width="3.5"/>
+    <circle cx="100" cy="150" r="10" fill="#C8102E"/>
+    <line x1="100" y1="150" x2="140" y2="230" stroke="#242427" stroke-width="3"/>
+    <!-- Right IK Target Box -->
+    <rect x="125" y="225" width="30" height="15" fill="none" stroke="#C9A34E" stroke-width="2"/>
+
+    <!-- 3D Mesh Polygon Wireframe Lines -->
+    <g stroke="#C9A34E" stroke-width="0.8" stroke-opacity="0.4" fill="none">
+      <polygon points="0,-172 -110,-10 0,-40"/>
+      <polygon points="0,-172 110,-10 0,-40"/>
+      <polygon points="-110,-10 0,70 0,-40"/>
+      <polygon points="110,-10 0,70 0,-40"/>
+      <polygon points="0,70 -90,160 0,180"/>
+      <polygon points="0,70 100,150 0,180"/>
+    </g>
+
+    <!-- Inverse Kinematics Curve (Dope Sheet Curve) -->
+    <path d="M-380,240 Q-200,80 -50,220 T200,140 T380,210" fill="none" stroke="#C8102E" stroke-width="2" stroke-dasharray="5 3"/>
+  </g>
+
+  <!-- Instagram Camera & Reel Bracket Badge -->
+  <g transform="translate(80, 580)">
+    <rect x="0" y="0" width="280" height="130" fill="#242427" rx="8"/>
+    <rect x="1" y="1" width="278" height="128" fill="none" stroke="#C9A34E" stroke-width="1.2" rx="7"/>
+    <text x="24" y="38" font-family="'JetBrains Mono', monospace" font-size="12" fill="#E23A34" font-weight="700">@FRAMEWORKSTUDIOS.OFFICIAL</text>
+    <text x="24" y="64" font-family="'Inter', sans-serif" font-size="14" fill="#FFFFFF" font-weight="600">3D Animation &amp; Rigs</text>
+    <text x="24" y="90" font-family="'JetBrains Mono', monospace" font-size="11" fill="#C9A34E">Maya • Blender • Marvelous</text>
+    <text x="24" y="110" font-family="'JetBrains Mono', monospace" font-size="10" fill="#AAA">LATEST INSTAGRAM POSTS</text>
+  </g>
+
+  <!-- CAD Border Overlays -->
+  <rect x="24" y="24" width="1152" height="752" stroke="#C9A34E" stroke-width="1.5" fill="none"/>
+  <rect x="36" y="36" width="1128" height="728" stroke="#242427" stroke-width="0.8" stroke-opacity="0.2" fill="none"/>
+
+  <g font-family="'JetBrains Mono', monospace" fill="#242427" font-size="13">
+    <text x="56" y="70" letter-spacing="4" font-weight="700">FRAMEWORK STUDIOS // 3D ANIMATION</text>
+    <text x="56" y="94" letter-spacing="2" opacity="0.6">CHARACTER RIGGING, CLOTH SIM &amp; KEYFRAMING</text>
+    <text x="1144" y="70" text-anchor="end" letter-spacing="3" fill="#C8102E" font-weight="700">ANAND S KUMAR</text>
+    <text x="1144" y="746" text-anchor="end" letter-spacing="2" opacity="0.6">INSTAGRAM PORTFOLIO</text>
+  </g>
+</svg>
