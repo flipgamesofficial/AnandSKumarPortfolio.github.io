@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#242427"/>
+      <stop offset=".5" stop-color="#3a3734"/>
+      <stop offset="1" stop-color="#141416"/>
+    </linearGradient>
+    <radialGradient id="eclipse" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#F0E9DA"/>
+      <stop offset=".48" stop-color="#C9A34E"/>
+      <stop offset=".62" stop-color="#B04B2B"/>
+      <stop offset="1" stop-color="#5A1A18" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDE9E0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#EDE9E0" stop-opacity=".22"/>
+    </linearGradient>
+    <pattern id="ash" width="140" height="140" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="30" r="1.6" fill="#EDE9E0" opacity=".4"/>
+      <circle cx="88" cy="14" r="1" fill="#EDE9E0" opacity=".3"/>
+      <circle cx="120" cy="76" r="2" fill="#EDE9E0" opacity=".25"/>
+      <circle cx="48" cy="110" r="1.2" fill="#C9A34E" opacity=".5"/>
+      <circle cx="102" cy="126" r=".9" fill="#EDE9E0" opacity=".3"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <rect width="1200" height="800" fill="url(#ash)"/>
+
+  <!-- eclipse -->
+  <circle cx="600" cy="300" r="280" fill="url(#eclipse)" opacity=".55"/>
+  <circle cx="600" cy="300" r="170" fill="#141416"/>
+  <circle cx="600" cy="300" r="176" stroke="#C9A34E" stroke-width="2" stroke-opacity=".9"/>
+  <circle cx="600" cy="300" r="204" stroke="#C9A34E" stroke-width="1" stroke-opacity=".35"/>
+
+  <!-- distant mountains -->
+  <path d="M0 470 120 340l80 60 90-120 120 150 90-60 100 120 80-90 120 140 100-70 100 110 80-50 120 90v340H0Z" fill="#26262a" opacity=".85"/>
+  <path d="M0 540 100 450l90 50 120-90 100 110 110-55 90 95 100-40 110 80 100-45 120 85 60-30 60 50v220H0Z" fill="#1c1c20"/>
+
+  <!-- ridge lines -->
+  <g stroke="#C9A34E" stroke-opacity=".35" stroke-width="1.5" fill="none">
+    <path d="M0 540 100 450l90 50 120-90 100 110 110-55 90 95 100-40 110 80 100-45 120 85 60-30 60 50"/>
+  </g>
+
+  <!-- ruins / pillars -->
+  <g fill="#101012">
+    <rect x="250" y="470" width="34" height="230"/>
+    <rect x="240" y="452" width="54" height="18"/>
+    <rect x="910" y="500" width="28" height="200"/>
+    <rect x="902" y="486" width="44" height="14"/>
+    <path d="M840 640h120l-16-60h-88l-16 60Z"/>
+  </g>
+  <g stroke="#C9A34E" stroke-opacity=".6" stroke-width="2">
+    <path d="M267 500v180M918 520v160"/>
+    <path d="M880 610h40M872 626h56"/>
+  </g>
+
+  <!-- rune circle -->
+  <g transform="translate(600 700)" stroke="#C9A34E" stroke-opacity=".7" stroke-width="1.5" fill="none">
+    <ellipse cx="0" cy="0" rx="300" ry="46"/>
+    <ellipse cx="0" cy="0" rx="220" ry="32" opacity=".6"/>
+    <ellipse cx="0" cy="0" rx="380" ry="60" opacity=".35"/>
+    <path d="M-300 0v-14M-220 0v-10M-120 0v-8M0 0v-8M120 0v-8M220 0v-10M300 0v-14"/>
+  </g>
+
+  <!-- lone figure -->
+  <g transform="translate(590 566)" fill="#0d0d0f">
+    <circle cx="0" cy="0" r="14"/>
+    <path d="M-16 18h32l10 82H-26l10-82Z"/>
+    <path d="M-26 100h22v34h-14zM4 100h22l-8 34H6z"/>
+    <path d="M-30 20l-6 62 12 4 6-64zM30 20l10 60-12 4-8-62z"/>
+    <path d="M-12-4 0-34l12 30-12 6z"/>
+  </g>
+  <path d="M540 800h120l-20-180h-80l-20 180Z" fill="#EDE9E0" opacity=".06"/>
+
+  <rect width="1200" height="800" fill="url(#fog)"/>
+  <rect x="18" y="18" width="1164" height="764" stroke="#C9A34E" stroke-opacity=".4" stroke-width="1.5"/>
+
+  <g font-family="monospace" fill="#EDE9E0">
+    <text x="44" y="66" font-size="15" letter-spacing="6" opacity=".75">ASHFALL</text>
+    <text x="44" y="96" font-size="12" letter-spacing="3" opacity=".4">THE HOLLOW KINGDOMS</text>
+    <text x="1156" y="66" font-size="12" letter-spacing="3" text-anchor="end" opacity=".5">CHAPTER III</text>
+    <text x="1156" y="762" font-size="12" letter-spacing="3" text-anchor="end" opacity=".5">RISE // REMEMBER</text>
+  </g>
+  <circle cx="1136" cy="96" r="5" fill="#E23A34"/>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="valkSky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f6fa"/>
+      <stop offset=".4" stop-color="#e2e7ef"/>
+      <stop offset="1" stop-color="#c5cbd6"/>
+    </linearGradient>
+    <linearGradient id="valkGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#f3d878"/>
+    </linearGradient>
+    <linearGradient id="valkRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e5252a"/>
+      <stop offset="1" stop-color="#991218"/>
+    </linearGradient>
+    <pattern id="valkGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#d4af37" stroke-width="0.8" stroke-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#valkSky)"/>
+  <rect width="1200" height="800" fill="url(#valkGrid)"/>
+
+  <!-- Tactical Golden HUD Circles -->
+  <circle cx="600" cy="400" r="320" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="8 6"/>
+  <circle cx="600" cy="400" r="240" stroke="#d4af37" stroke-width="2" stroke-opacity="0.6"/>
+  <circle cx="600" cy="400" r="160" stroke="#e5252a" stroke-width="1.5" stroke-opacity="0.5"/>
+  <circle cx="600" cy="400" r="10" fill="#e5252a"/>
+
+  <!-- Tactical Reticle Crosshairs -->
+  <line x1="200" y1="400" x2="1000" y2="400" stroke="#d4af37" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="600" y1="100" x2="600" y2="700" stroke="#d4af37" stroke-width="1.2" stroke-opacity="0.5"/>
+
+  <!-- Geometric Mech / Drone Silhouette in Slate Grey -->
+  <polygon points="600,180 720,340 680,560 600,520 520,560 480,340" fill="#2d3340" stroke="#d4af37" stroke-width="2"/>
+  <polygon points="600,240 670,360 600,480 530,360" fill="#1b1f28"/>
+  
+  <!-- Glowing Red Sensor Visor -->
+  <polygon points="560,320 640,320 620,345 580,345" fill="url(#valkRed)"/>
+  <line x1="460" y1="332" x2="740" y2="332" stroke="#e5252a" stroke-width="3" stroke-opacity="0.8"/>
+
+  <!-- Golden Wing Aero Foils -->
+  <path d="M480 340 L260 440 L340 500 L490 410 Z" fill="#3b4353" stroke="#d4af37" stroke-width="1.5"/>
+  <path d="M720 340 L940 440 L860 500 L710 410 Z" fill="#3b4353" stroke="#d4af37" stroke-width="1.5"/>
+
+  <!-- Red Accent Decals -->
+  <rect x="290" y="450" width="60" height="6" fill="#e5252a"/>
+  <rect x="850" y="450" width="60" height="6" fill="#e5252a"/>
+
+  <!-- Tech Markings -->
+  <text x="60" y="100" font-family="'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2d3340" font-weight="bold">PROTOCOL // VALKYRIE-07</text>
+  <text x="60" y="130" font-family="'JetBrains Mono', monospace" font-size="13" letter-spacing="4" fill="#d4af37">TACTICAL MECH SQUAD • UE5 C++</text>
+
+  <!-- Corner Golden Tech Brackets -->
+  <path d="M40 70 L40 40 L70 40" stroke="#d4af37" stroke-width="3" fill="none"/>
+  <path d="M1160 70 L1160 40 L1130 40" stroke="#d4af37" stroke-width="3" fill="none"/>
+  <path d="M40 730 L40 760 L70 760" stroke="#d4af37" stroke-width="3" fill="none"/>
+  <path d="M1160 730 L1160 760 L1130 760" stroke="#d4af37" stroke-width="3" fill="none"/>
+</svg>
