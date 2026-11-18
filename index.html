@@ -16,6 +16,28 @@
   <link rel="icon" type="image/png" href="assets/framework-studio-logo.png">
 
   <link rel="stylesheet" href="styles.css">
+  <script>
+    const MY_BIRTH_DATE = "2004-06-05"; // Set to your exact birth date
+
+      function calculateAge(birthDateString) {
+          const birthDate = new Date(birthDateString);
+          const today = new Date();
+          let age = today.getFullYear() - birthDate.getFullYear();
+          const monthDifference = today.getMonth() - birthDate.getMonth();
+          
+          if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+              age--;
+          }
+          return age;
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+          const currentAge = calculateAge(MY_BIRTH_DATE);
+          document.querySelectorAll(".dynamic-age").forEach(element => {
+              element.textContent = currentAge;
+          });
+      });
+  </script>
 </head>
 <body class="light-theme">
   <!-- Subtle Audio State Indicator -->
@@ -115,7 +137,7 @@
         <div class="hero__content">
           <div class="hero__badge">
             <span class="hero__badge-pulse"></span>
-            <span class="hero__badge-text">GAME DEVELOPER • 3D ANIMATION &amp; VFX ARTIST • 22 YRS OLD</span>
+            <span class="hero__badge-text">GAME DEVELOPER • 3D ANIMATION &amp; VFX ARTIST • <span class="dynamic-age"></span> YRS OLD</span>
           </div>
 
           <h1 class="hero__title">
@@ -123,7 +145,7 @@
           </h1>
 
           <p class="hero__lead">
-            I'm <strong>Anand S Kumar</strong>, a 22-year-old game developer, 3D animator, and VFX artist heading <strong>Framework Studio</strong>. Currently developing <strong>Kuvalamkaattu Ilam</strong> (Unreal Engine 5 first-person folklore horror) and creator of playable titles like <strong>Squishy</strong> and <strong>Road Block</strong> on itch.io. Experienced in <strong>Unity (C#)</strong>, <strong>Unreal Engine</strong>, <strong>Blender</strong>, <strong>Maya</strong>, <strong>Marvelous Designer</strong>, <strong>Substance Painter</strong>, <strong>After Effects</strong>, <strong>Premiere Pro</strong>, and <strong>Photoshop</strong>.
+            I'm <strong>Anand S Kumar</strong>, a <span class="dynamic-age"></span>-year-old game developer, 3D animator, and VFX artist heading <strong>Framework Studio</strong>. Currently developing <strong>Kuvalamkaattu Ilam</strong> (Unreal Engine 5 first-person folklore horror) and creator of playable titles like <strong>Squishy</strong> and <strong>Road Block</strong> on itch.io. Experienced in <strong>Unity (C#)</strong>, <strong>Unreal Engine</strong>, <strong>Blender</strong>, <strong>Maya</strong>, <strong>Marvelous Designer</strong>, <strong>Substance Painter</strong>, <strong>After Effects</strong>, <strong>Premiere Pro</strong>, and <strong>Photoshop</strong>.
           </p>
 
           <div class="hero__actions">
@@ -177,7 +199,7 @@
                 <span class="metric-card__tag">CREATIVE AGE</span>
                 <span class="metric-card__dot metric-card__dot--gold"></span>
               </div>
-              <div class="metric-card__val">22 YRS</div>
+              <div class="metric-card__val"><span class="dynamic-age"></span> YRS</div>
               <div class="metric-card__desc">Game Dev &amp; 3D Visual Artist</div>
             </div>
           </div>
@@ -425,10 +447,10 @@
             </div>
 
             <p class="about-lead">
-              I'm <strong>Anand S Kumar</strong>, a 22-year-old game developer, 3D animator, and VFX artist pursuing M.Sc. Game Technology at Backstage Pass.
+              I'm <strong>Anand S Kumar</strong>, a <span class="dynamic-age"></span>-year-old game developer, 3D animator, and VFX artist pursuing M.Sc. Game Technology at Backstage Pass.
             </p>
             <p>
-              With a <strong>B.Sc. in Animation &amp; VFX from Westford Institute of Film Technology (WIFT)</strong>, I worked full-time as a <strong>3D Generalist at Flyfish Studio</strong> during my 6th semester, contributing to two feature films: <em>Rekhachithram</em> and <em>Emerald</em> (2025).
+              With a <strong>B.Sc. in Animation &amp; VFX from Westford Institute of Film Technology (WIFT)</strong>, I worked full-time as a <strong>3D Generalist at Flyfish Studio</strong> during my 6th semester and I contributed to two feature films: <em>Rekhachithram</em> and <em>Emerald</em> (2025) where I worked as a compositer and VFX artist respectively.
             </p>
             <p>
               I build interactive games and experiences in <strong>Unity (C#)</strong>, having created and published titles like <strong>Squishy</strong> and <strong>Road Block</strong> on itch.io. My creative toolchain spans <strong>Blender</strong>, <strong>Autodesk Maya</strong>, <strong>Marvelous Designer</strong>, <strong>Substance Painter</strong>, <strong>Adobe After Effects</strong>, and <strong>Premiere Pro</strong>.
@@ -474,7 +496,7 @@
                 </div>
                 <div class="telemetry-row">
                   <span class="telemetry-label">AGE:</span>
-                  <span class="telemetry-value telemetry-value--red">22 Years Old</span>
+                  <span class="telemetry-value telemetry-value--red"><span class="dynamic-age"></span> Years Old</span>
                 </div>
                 <div class="telemetry-row">
                   <span class="telemetry-label">GAME ENGINES:</span>
@@ -593,6 +615,8 @@
                   <option value="contract-3d">Contract 3D Animation &amp; Rigging (Maya / Blender)</option>
                   <option value="contract-gameplay">Contract Gameplay Dev (Unity C# / Unreal Engine)</option>
                   <option value="general">General Collaboration / Portfolio Chat</option>
+                  <option value="full-time">Technical artist</option>
+                  <option value="full-time">UE5 game developer</option>
                 </select>
               </div>
             
@@ -615,7 +639,7 @@
           
             <!-- DIRECT CONTACT CARDS (Stacked below the form on the left side) -->
             <div class="contact-cards">
-              <a href="mailto:anandskumarndd@gmail.com" class="contact-pill-card">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anandskumarndd@gmail.com&su=Portfolio+Inquiry" target="_blank" rel="noopener noreferrer" class="contact-pill-card">
                 <span class="contact-pill-card__icon">✉️</span>
                 <div>
                   <span class="contact-pill-card__label">DIRECT EMAIL</span>
@@ -668,7 +692,7 @@
                 <div class="term-line term-line--gold">Loaded Anand S Kumar Dev &amp; VFX Suite (Unity C# / AE / Premiere / Blender / Maya)</div>
                 <div class="term-line">Type <span class="term-highlight">help</span> or click quick commands below:</div>
                 <div class="term-line term-line--accent">guest@anand-dev:~$ whoami</div>
-                <div class="term-line term-line--out">Anand S Kumar (22) — Game Developer, 3D Animator &amp; VFX Artist. M.Sc. Game Technology (Backstage Pass) • 3D Generalist @ Flyfish Studio ('Rekhachithram' &amp; 'Emerald', 2025) • B.Sc. Animation &amp; VFX (WIFT). Creator of Squishy &amp; Road Block on Itch.io.</div>
+                <div class="term-line term-line--out">Anand S Kumar (<span class="dynamic-age"></span>) — Game Developer, 3D Animator &amp; VFX Artist. M.Sc. Game Technology (Backstage Pass) • 3D Generalist @ Flyfish Studio ('Rekhachithram' &amp; 'Emerald', 2025) • B.Sc. Animation &amp; VFX (WIFT). Creator of Squishy &amp; Road Block on Itch.io.</div>
               </div>
             
               <div class="terminal-chips">

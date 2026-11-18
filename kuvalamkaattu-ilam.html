@@ -13,6 +13,30 @@
   
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="assets/framework-studios-logo.png">
+
+  <script>
+    const MY_BIRTH_DATE = "2004-06-05"; // Set to your exact birth date
+
+      function calculateAge(birthDateString) {
+          const birthDate = new Date(birthDateString);
+          const today = new Date();
+          let age = today.getFullYear() - birthDate.getFullYear();
+          const monthDifference = today.getMonth() - birthDate.getMonth();
+          
+          if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+              age--;
+          }
+          return age;
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+          const currentAge = calculateAge(MY_BIRTH_DATE);
+          document.querySelectorAll(".dynamic-age").forEach(element => {
+              element.textContent = currentAge;
+          });
+      });
+  </script>
+
 </head>
 <body class="theme-light">
 
@@ -186,6 +210,176 @@
     </section>
 
 
+    <!-- SECTION: 3D ART GALLERY (ARTSTATION LINKS) -->
+    <section class="detail-section detail-section--contrast art-gallery-section" id="art-gallery">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading__eyebrow">
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">3D ART &amp; ARTSTATION SHOWCASE</span>
+            <span class="eyebrow-line"></span>
+          </div>
+          <h2 class="section-title">3D Art <span class="highlight-red">Gallery</span></h2>
+          <p class="section-subtitle">
+            Selected models and artworks from my ArtStation profile. Click any item to view the full project on ArtStation.
+          </p>
+        </div>
+
+        <div class="art-gallery-topbar">
+          <p class="art-gallery-topbar__note">Showing 6 artworks at a time. Use the button below to expand the full list.</p>
+          <a href="https://www.artstation.com/anandskumar" target="_blank" rel="noopener noreferrer" class="btn btn--gold-outline btn--sm">VISIT ARTSTATION PROFILE ↗</a>
+        </div>
+
+        <div class="art-gallery-list" id="artGalleryList" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+          <!-- ARTWORK 1 -->
+          <!-- ARTWORK 1 -->
+          <article class="art-gallery-card">
+            <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/Qxa5Xd" target="_blank" rel="noopener noreferrer" aria-label="Open KuthiraVilakku model on ArtStation">
+              <img src="Thumbnails/KuthiraVilakku.jpg" alt="Artwork Title 01 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-framework-studios.svg';">
+              <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+            </a>
+            <div class="art-gallery-card__body">
+              <h3 class="art-gallery-card__title">Kuthira Vilakku</h3>
+              <p class="art-gallery-card__desc">It is an old tarditional lamp which act as the primary sourse of light for the player.</p>
+              <div class="art-gallery-card__meta">
+                <a href="https://www.artstation.com/artwork/Qxa5Xd" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                <span class="art-gallery-card__tag">3D MODEL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTWORK 2 -->
+          <article class="art-gallery-card">
+            <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/Baw4R9" target="_blank" rel="noopener noreferrer" aria-label="Open Front Door model on ArtStation">
+              <img src="Thumbnails/FrontDoor.jpg" alt="Artwork Title 02 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-aether.svg';">
+              <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+            </a>
+            <div class="art-gallery-card__body">
+              <h3 class="art-gallery-card__title">FrontDoor Model</h3>
+              <p class="art-gallery-card__desc">Old traditional front door.</p>
+              <div class="art-gallery-card__meta">
+                <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_2" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                <span class="art-gallery-card__tag">3D MODEL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTWORK 3 -->
+          <article class="art-gallery-card">
+            <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_3" target="_blank" rel="noopener noreferrer" aria-label="Open Artwork Title 03 on ArtStation">
+              <img src="assets/cover-ashfall.svg" alt="Artwork Title 03 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-ashfall.svg';">
+              <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+            </a>
+            <div class="art-gallery-card__body">
+              <h3 class="art-gallery-card__title">Artwork Title 03</h3>
+              <p class="art-gallery-card__desc">Short description of the model, prop, character, or environment piece.</p>
+              <div class="art-gallery-card__meta">
+                <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_3" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                <span class="art-gallery-card__tag">3D MODEL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTWORK 4 -->
+          <article class="art-gallery-card">
+            <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_4" target="_blank" rel="noopener noreferrer" aria-label="Open Artwork Title 04 on ArtStation">
+              <img src="assets/cover-neon-requiem.svg" alt="Artwork Title 04 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-neon-requiem.svg';">
+              <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+            </a>
+            <div class="art-gallery-card__body">
+              <h3 class="art-gallery-card__title">Artwork Title 04</h3>
+              <p class="art-gallery-card__desc">Short description of the model, prop, character, or environment piece.</p>
+              <div class="art-gallery-card__meta">
+                <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_4" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                <span class="art-gallery-card__tag">3D MODEL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTWORK 5 -->
+          <article class="art-gallery-card">
+            <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_5" target="_blank" rel="noopener noreferrer" aria-label="Open Artwork Title 05 on ArtStation">
+              <img src="assets/cover-orbital-drift.svg" alt="Artwork Title 05 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-orbital-drift.svg';">
+              <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+            </a>
+            <div class="art-gallery-card__body">
+              <h3 class="art-gallery-card__title">Artwork Title 05</h3>
+              <p class="art-gallery-card__desc">Short description of the model, prop, character, or environment piece.</p>
+              <div class="art-gallery-card__meta">
+                <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_5" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                <span class="art-gallery-card__tag">3D MODEL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTWORK 6 -->
+          <article class="art-gallery-card">
+            <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_6" target="_blank" rel="noopener noreferrer" aria-label="Open Artwork Title 06 on ArtStation">
+              <img src="assets/cover-valkyrie.svg" alt="Artwork Title 06 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-valkyrie.svg';">
+              <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+            </a>
+            <div class="art-gallery-card__body">
+              <h3 class="art-gallery-card__title">Artwork Title 06</h3>
+              <p class="art-gallery-card__desc">Short description of the model, prop, character, or environment piece.</p>
+              <div class="art-gallery-card__meta">
+                <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_6" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                <span class="art-gallery-card__tag">3D MODEL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Extra artworks (smooth expand/collapse with button moving with page) -->
+        <div class="art-gallery-extras-shell" id="artGalleryExtrasShell" aria-hidden="true">
+          <div class="art-gallery-extras-inner">
+            <div class="art-gallery-list art-gallery-list--extras" id="artGalleryExtrasList" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+              <!-- ARTWORK 7 (hidden until expanded) -->
+              <!-- ARTWORK 7 (hidden until expanded) -->
+              <article class="art-gallery-card art-gallery-card--extra">
+                <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_7" target="_blank" rel="noopener noreferrer" aria-label="Open Artwork Title 07 on ArtStation">
+                  <img src="assets/cover-velocity.svg" alt="Artwork Title 07 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-velocity.svg';">
+                  <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+                </a>
+                <div class="art-gallery-card__body">
+                  <h3 class="art-gallery-card__title">Artwork Title 07</h3>
+                  <p class="art-gallery-card__desc">Short description of the model, prop, character, or environment piece.</p>
+                  <div class="art-gallery-card__meta">
+                    <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_7" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                    <span class="art-gallery-card__tag">3D MODEL</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- ARTWORK 8 (hidden until expanded) -->
+              <article class="art-gallery-card art-gallery-card--extra">
+                <a class="art-gallery-card__media" href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_8" target="_blank" rel="noopener noreferrer" aria-label="Open Artwork Title 08 on ArtStation">
+                  <img src="assets/cover-road-block.svg" alt="Artwork Title 08 thumbnail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/cover-road-block.svg';">
+                  <span class="art-gallery-card__overlay">VIEW ON ARTSTATION ↗</span>
+                </a>
+                <div class="art-gallery-card__body">
+                  <h3 class="art-gallery-card__title">Artwork Title 08</h3>
+                  <p class="art-gallery-card__desc">Short description of the model, prop, character, or environment piece.</p>
+                  <div class="art-gallery-card__meta">
+                    <a href="https://www.artstation.com/artwork/REPLACE_WITH_ARTWORK_ID_8" target="_blank" rel="noopener noreferrer" class="art-gallery-card__link">Open on ArtStation</a>
+                    <span class="art-gallery-card__tag">3D MODEL</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="art-gallery-actions" id="artGalleryActions">
+          <button type="button" class="btn btn--red-outline art-gallery-toggle" id="artGalleryToggle" aria-expanded="false" aria-controls="artGalleryExtrasShell">
+            <span id="artGalleryToggleText">SHOW MORE ARTWORKS</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION: DEVELOPMENT ROADMAP -->
     <section class="detail-section detail-section--grey">
       <div class="container">
@@ -251,7 +445,7 @@
             Follow the Development of <span class="highlight-red">Kuvalamkaattu Ilam</span>
           </h2>
           <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 600px; margin: 0 auto 28px;">
-            Developed by <strong>Anand S Kumar</strong> (22-year-old Game Developer, 3D Animator &amp; VFX Artist). For publishing inquiries, playtesting access, or collaboration opportunities, feel free to reach out directly.
+            Developed by <strong>Anand S Kumar</strong> (<span class="dynamic-age"></span>-year-old Game Developer, 3D Animator &amp; VFX Artist). For publishing inquiries, playtesting access, or collaboration opportunities, feel free to reach out directly.
           </p>
 
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
@@ -306,6 +500,137 @@
   </footer>
 
   <script src="main.js"></script>
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById('artGalleryToggle');
+      const shell = document.getElementById('artGalleryExtrasShell');
+      const extrasList = document.getElementById('artGalleryExtrasList');
+      const actions = document.getElementById('artGalleryActions');
+      const text = document.getElementById('artGalleryToggleText');
+      if (!toggleBtn || !shell || !extrasList) return;
+
+      const extras = Array.from(extrasList.querySelectorAll('.art-gallery-card--extra'));
+      const STAGGER_EXPAND = 130;   // ms between each card when revealing
+      const STAGGER_COLLAPSE = 100; // ms between each card when collapsing
+      const CARD_ANIM_MS = 760;     // approx card transition duration (matches CSS)
+      const SHELL_ANIM_MS = 980;    // approx shell/page expansion duration (matches CSS)
+
+      let isExpanded = false;
+      let isAnimating = false;
+
+      function applyStagger(expanding) {
+        extras.forEach((card, i) => {
+          const index = expanding ? i : (extras.length - 1 - i);
+          const delay = index * (expanding ? STAGGER_EXPAND : STAGGER_COLLAPSE);
+          card.style.setProperty('--stagger', delay + 'ms');
+        });
+      }
+
+      function totalDuration(expanding) {
+        const stagger = expanding ? STAGGER_EXPAND : STAGGER_COLLAPSE;
+        return Math.max(SHELL_ANIM_MS, CARD_ANIM_MS + Math.max(0, extras.length - 1) * stagger);
+      }
+
+      function setButtonState(state) {
+        // state: 'collapsed' | 'expanding' | 'expanded' | 'collapsing'
+        toggleBtn.classList.toggle('is-animating', state === 'expanding' || state === 'collapsing');
+        toggleBtn.classList.toggle('is-expanding', state === 'expanding');
+        toggleBtn.classList.toggle('is-collapsing', state === 'collapsing');
+        toggleBtn.classList.toggle('is-expanded', state === 'expanded' || state === 'collapsing');
+
+        if (actions) {
+          actions.classList.toggle('is-animating', state === 'expanding' || state === 'collapsing');
+          actions.classList.toggle('is-expanded', state === 'expanded' || state === 'collapsing');
+        }
+      }
+
+      function finishAnimation(finalExpanded) {
+        isAnimating = false;
+        isExpanded = finalExpanded;
+
+        shell.classList.remove('is-animating');
+        shell.classList.toggle('is-expanded', finalExpanded);
+        shell.setAttribute('aria-hidden', String(!finalExpanded));
+
+        extras.forEach((card) => {
+          card.classList.toggle('is-revealed', finalExpanded);
+          if (finalExpanded) {
+            card.removeAttribute('aria-hidden');
+            card.removeAttribute('inert');
+          } else {
+            card.setAttribute('aria-hidden', 'true');
+            card.setAttribute('inert', '');
+          }
+        });
+
+        toggleBtn.setAttribute('aria-expanded', String(finalExpanded));
+        if (text) text.textContent = finalExpanded ? 'SHOW FEWER ARTWORKS' : 'SHOW MORE ARTWORKS';
+        setButtonState(finalExpanded ? 'expanded' : 'collapsed');
+      }
+
+      function expandGallery() {
+        if (isAnimating || isExpanded) return;
+        isAnimating = true;
+        applyStagger(true);
+        setButtonState('expanding');
+        if (text) text.textContent = 'SHOW FEWER ARTWORKS';
+
+        // Prepare extras (start hidden, then animate in)
+        shell.setAttribute('aria-hidden', 'false');
+        extras.forEach((card) => {
+          card.removeAttribute('aria-hidden');
+          card.removeAttribute('inert');
+          card.classList.remove('is-revealed');
+        });
+
+        // Moving state: button animates, page/shell expands, tiles fade toward white via CSS
+        shell.classList.add('is-animating', 'is-expanded');
+
+        // Force reflow so transitions start from collapsed/hidden state
+        void shell.offsetHeight;
+
+        // Reveal tiles card-by-card with stagger (slow & smooth)
+        extras.forEach((card) => card.classList.add('is-revealed'));
+
+        window.setTimeout(() => {
+          if (isAnimating) finishAnimation(true);
+        }, totalDuration(true) + 40);
+      }
+
+      function collapseGallery() {
+        if (isAnimating || !isExpanded) return;
+        isAnimating = true;
+        applyStagger(false);
+        setButtonState('collapsing');
+        if (text) text.textContent = 'SHOW MORE ARTWORKS';
+
+        // Moving state: tiles fade toward white and slide/fade out; shell/button/page move up
+        shell.classList.add('is-animating');
+        extras.forEach((card) => card.classList.remove('is-revealed'));
+        shell.classList.remove('is-expanded');
+
+        window.setTimeout(() => {
+          if (isAnimating) finishAnimation(false);
+        }, totalDuration(false) + 40);
+      }
+
+      // Initial collapsed state
+      shell.classList.remove('is-expanded', 'is-animating');
+      shell.setAttribute('aria-hidden', 'true');
+      extras.forEach((card) => {
+        card.classList.remove('is-revealed');
+        card.setAttribute('aria-hidden', 'true');
+        card.setAttribute('inert', '');
+        card.style.setProperty('--stagger', '0ms');
+      });
+      setButtonState('collapsed');
+
+      toggleBtn.addEventListener('click', function () {
+        if (isExpanded) collapseGallery();
+        else expandGallery();
+      });
+    })();
+  </script>
   
 </body>
 </html>
